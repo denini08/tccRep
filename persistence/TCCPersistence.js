@@ -27,7 +27,7 @@ class TCCPersistence {
   }
 
   searchIsbn(isbn) {
-    const sql = "SELECT * FROM trabalhos WHERE isbn LIKE '%" + isbn + "%';";
+    const sql = "SELECT * FROM trabalhos WHERE isbn = " + isbn + ";";
 
     return new Promise((resolve, reject) => {
       this.connection.query(sql, (err, result) => {

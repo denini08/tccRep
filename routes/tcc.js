@@ -11,6 +11,7 @@ router.use(bodyParser.json());
 router.get('/insert', (req,res)=>{
     res.render('inserir');
 });
+
 router.get('/:isbn', function(req, res, next) {
     a = req.params;
    if(!a.isbn){
@@ -57,5 +58,16 @@ router.post('/delete', (request, response) => {
     }).catch((err) => {
       response.send('erro: ' + err);
     });
-  });
+});
+
+router.post('/search', (req,resp) =>{
+  console.log("Busca")
+  const b = req.body;
+  tccBusiness.searchTcc(b).then((res)=>{
+    resp.send(res);
+  }).catch((err)=>{
+    resp.send(err);
+  })
+})
+
 module.exports = router;

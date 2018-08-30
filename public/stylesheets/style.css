@@ -1,8 +1,10 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.campo{
+  background-color: green;
+}
+label{
+  display: inherit;
 }
 
-a {
-  color: #00B7FF;
+input{
+  text-align: left;
 }

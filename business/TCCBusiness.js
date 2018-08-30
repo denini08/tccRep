@@ -38,6 +38,16 @@ class TCCBusiness {
       });
     });
   }
+
+  searchTcc(req){
+    return new Promise((resolve,reject)=>{
+      if(req.titulo){
+
+      }else if(true){
+
+      }
+    })
+  }
 }  
   
   /*
