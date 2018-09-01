@@ -18,11 +18,17 @@ router.get('/:isbn', function(req, res, next) {
        res.send('ERRO PARAMENTRO NAO PASSADO')
    }
     tccBusiness.searchTccByIsbn(a.isbn).then((result) => {
-        res.send(result);
+      res.render("mostrar_tcc", {isbn: result[0].isbn,
+                                titulo: result[0].titulo,
+                                tema: result[0].tema,
+                                autor: result[0].autor,
+                                curso: result[0].curso,
+                                ano: result[0].ano,
+                                semestre: result[0].semestre,
+                              });
       }).catch(() => {
           console.log(`opas`);
-          res.
-        res.send('Não foi possível encontrar esse tcc, verifique o isbn');
+          res.send('Não foi possível encontrar esse tcc, verifique o isbn');
       });
    
 });
@@ -45,7 +51,7 @@ router.post('/insert', (req,res,next) =>{
       b.ano,
       b.semestre,
     ).then(() => {
-      res.send('Inserção foi massa!');
+      res.render("sucesso");
     }).catch((err) => {
       res.send(err);
     });
