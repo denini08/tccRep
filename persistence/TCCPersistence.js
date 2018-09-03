@@ -4,42 +4,16 @@ class TCCPersistence {
   constructor() {
     this.connection = conn;
   }
-  insert(isbn, titulo, tema, autor, curso, ano, semestre) {
+  insert(isbn, titulo, tema, autor, curso, ano, semestre, orientadores) {
     return new Promise((resolve, reject) => {
-      const sql = 'INSERT INTO Trabalhos (isbn, titulo, tema, autor, curso, ano, semestre) VALUES ? ';
-      const values = [[isbn, titulo, tema, autor, curso, ano, semestre]];
+      const sql = 'INSERT INTO Trabalhos (isbn, titulo, tema, autor, curso, ano, semestre, orientadores) VALUES ? ';
+      const values = [[isbn, titulo, tema, autor, curso, ano, semestre, orientadores]];
       this.connection.query(sql, [values], (err, result) => {
-        if (err){
-          reject(err);
-        }else{
-          let id_Professor;
-          buscarOrientador(NomeOrientador,(err,result)=>{
-            if(err){
-             await adicionarNovoOrientador(); //como pegar o id do NovoOrientador??
-            }else{
-              
-            }
-          });
-
-          resolve(result);
-        }
-      });
+        if (err) reject(err);
+        resolve(result);
     });
-  }
-
-  buscarOrientador(NomeOrientador){
-    return new Promise((resolve,reject) =>{
-      const sql = "SELECT id FROM orientadores WHERE nome_orientador LIKE " + NomeOrientador + ";"
-      this.connection.query(sql,(err,result)=>{
-        if(erro) reject(err);
-        resolve (result); 
-      })
-    })
-  }
-
-  async adicionarNovoOrientador(){
-    
-  }
+  })
+}
 
   delete(isbn) {
     return new Promise((resolve, reject) => {

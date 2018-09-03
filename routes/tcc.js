@@ -51,6 +51,7 @@ router.post('/insert', (req,res,next) =>{
       b.curso,
       b.ano,
       b.semestre,
+      b.orientadores
     ).then(() => {
       res.render("sucesso");
     }).catch((err) => {
