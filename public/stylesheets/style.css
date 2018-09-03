@@ -1,10 +1,51 @@
-.campo{
-  background-color: green;
+/*Header*/
+header{
+  background-color: blue;
+  height: 10vh;
 }
+.img_top{
+  margin: 3px;
+}
+#lista_menu_superior{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  float: right;
+  display: -webkit-inline-flex;
+}
+.lista_superior li a{
+  display: block;
+  color:white;
+  text-align: center;
+  padding: 16px 25px;
+  text-decoration: none;
+}
+
 label{
   display: inherit;
 }
 
-input{
-  text-align: left;
+input[type=text] {
+  -webkit-transition: width 0.7s ease-in-out;
+  transition: width 0.7s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 50%;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 12px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }

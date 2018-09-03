@@ -8,34 +8,48 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
-    <body class="campo">
+    <body>
+        <header>
+            <div class="container" id="superior">
+                <img class="img_top" src="/android.png" alt="logo" height="42" width="42">
+                <ul class="lista_superior" id="lista_menu_superior">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">News</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </div>
+        </header>
         <form action="/tcc/insert" method="POST"> 
         <div class="container">
                 <label for="isbn">ISBN</label>
-                <input id="isbn" name="isbn" class="estilo" placeholder="ISBN">
+                <input id="isbn" name="isbn" class="estilo" placeholder="ISBN" required>
  
                 <label for="titulo">Titulo</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Titulo">
+                <input type="text" id="titulo" name="titulo" placeholder="Titulo" required>
 
                 <label for="tema">Tema</label>
-                <input type="text" id="tema" name="tema" placeholder="Tema">
+                <input type="text" id="tema" name="tema" placeholder="Tema" required>
 
                 <label for="autor">Autor</label>
-                <input type="text" id="autor" name="autor" placeholder="autor">
+                <input type="text" id="autor" name="autor" placeholder="Autor" required>
 
                 <label for="curso">Curso</label>
-                <input type="text" id="curso" name="curso" placeholder="Curso">
+                <select name="curso" id="curso">
+                    <option value="none"></option>
+                    <option value="sistemas">Sistemas de Informação</option>
+                    <option value="adm">Administração</option>
+                </select>
 
                 <label for="ano">Ano</label>
-                <input type="number" id="ano" name="ano" placeholder="Ano">
+                <input type="number" id="ano" name="ano"  min="1990" max="2018" required>
 
                 <label for="semestre">Semestre</label>
-                <input type="number" id="semestre" name="semestre" placeholder="Semestre">
+                <input type="number" id="semestre" name="semestre" min="1" max="2" required>
 
                 <label for="Orientadores">Semestre</label>
-                <input type="text" id="orientadores" name="orientadores" placeholder="Orientadores">
-
-
+                <input type="text" id="orientadores" name="orientadores" placeholder="Orientadores" required>
+                <br>
                 <button class="button"type="submit">Enviar</button>
 
             </div>  
