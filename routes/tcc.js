@@ -14,12 +14,13 @@ router.get('/insert', (req,res)=>{
 
 router.get('/:isbn', function(req, res, next) {
     a = req.params;
-   if(!a.isbn){
-       res.send('ERRO PARAMENTRO NAO PASSADO')
-   }
+   if(isNaN(a.isbn)){
+       res.render('errorComMensagem', {erroMensagem:  'Não foi possível encontrar esse tcc, verifique se o isbn é um numero'});
+      return;
+    }
     tccBusiness.searchTccByIsbn(a.isbn).then((result) => {
       res.render("mostrar_tcc", {isbn: result[0].isbn,
-                                titulo: result[0].titulo,
+                                titulo: result[0].titulo, 
                                 tema: result[0].tema,
                                 autor: result[0].autor,
                                 curso: result[0].curso,
@@ -27,8 +28,8 @@ router.get('/:isbn', function(req, res, next) {
                                 semestre: result[0].semestre,
                               });
       }).catch(() => {
-          console.log(`opas`);
-          res.send('Não foi possível encontrar esse tcc, verifique o isbn');
+          console.log(`erro mostrar`);
+          res.render('errorComMensagem', {erroMensagem:  'Não foi possível encontrar esse tcc, verifique o isbn'});
       });
    
 });
@@ -75,5 +76,7 @@ router.post('/search', (req,resp) =>{
     resp.send(err);
   })
 })
+
+
 
 module.exports = router;
