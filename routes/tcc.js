@@ -35,7 +35,7 @@ router.get('/:isbn', function(req, res, next) {
 });
 
 router.get('/', (req,res,next) =>{
-    res.send('defalt');
+    res.render('index');
 });
 
 
@@ -55,7 +55,7 @@ router.post('/insert', (req,res,next) =>{
     ).then(() => {
       res.render("sucesso");
     }).catch((err) => {
-      res.send(err);
+      res.render('errorComMensagem', {erroMensagem: err});
     });
 });
 
@@ -69,7 +69,7 @@ router.post('/delete', (request, response) => {
 });
 
 router.post('/search', (req,resp) =>{
-  console.log("Busca")
+  console.log("Busca " + req.body.busca + " campo "+ req.body.campo)
   const b = req.body;
   tccBusiness.searchTcc(b).then((res)=>{
     resp.send(res);
@@ -78,6 +78,9 @@ router.post('/search', (req,resp) =>{
   })
 })
 
-
+router.post('/teste', (req,res)=>{
+  console.log('aeee');
+  res.send(req.body);
+})
 
 module.exports = router;

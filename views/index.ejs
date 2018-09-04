@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+    <form action="/tcc/search" method="POST">
+        <select name="campo" id="curso">
+            <option value="titulo">Titulo</option>
+            <option value="isbn">Isbn</option>
+            <option value="tema">Tema</option>
+            <option value="autor">Autor</option>
+            <option value="ano">Ano</option>
+            <option value="curso">Curso</option>
+            <option value="orientador">Orientador</option>
+        </select>
+        <input type="text" id="busca" name="busca" placeholder="Busca TCC" required>
+        <button class="button"  type="submit">Buscar</button>
+    </form>
+</body>
+</html>
