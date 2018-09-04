@@ -1,34 +1,52 @@
-/*Header*/
-header{
-  background-color: blue;
-  height: 10vh;
+body{
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 25px;
+  color: #3b4045;
+  font-family: "Josefin Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
-.img_top{
-  margin: 3px;
-}
-#lista_menu_superior{
-  list-style-type: none;
+/*Nav*/
+.logo {
+  display: inline-block; }
+  .logo h1 {
+    color: #444;
+    font-size: 25px;
+    margin: 0;
+    line-height: 1; }
+
+.navigation {
+  background-color: transparent;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+  padding: 10px 50px;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
-  float: right;
-  display: -webkit-inline-flex;
-}
-.lista_superior li a{
-  display: block;
-  color:white;
-  text-align: center;
-  padding: 16px 25px;
-  text-decoration: none;
-}
+  border: 0; }
+  .navigation .navbar-brand {
+    display: inline-block; 
+  }
+  
+.menu {
+  margin-top: 14px; }
+  .menu li {
+    display: inline-block;
+    margin: 0 10px; }
+    .menu li a {
+      color: #444;
+      font-size: 14px;
+      font-weight: bold;
+    display: inline; }
 
 label{
   display: inherit;
 }
 
 input[type=text] {
-  -webkit-transition: width 0.7s ease-in-out;
-  transition: width 0.7s ease-in-out;
+  -webkit-transition: width 1.5s ease-in-out;
+  transition: width 1.5s ease-in-out;
 }
 
 input[type=text]:focus {
