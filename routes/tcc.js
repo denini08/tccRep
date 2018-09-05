@@ -73,9 +73,11 @@ router.post('/search', (req,resp) =>{
   const b = req.body;
   console.log(b);
   tccBusiness.searchTcc(b).then((res)=>{
-    resp.send(res);
+    console.log(res);
+    resp.render('resultadosBusca', {retorno: res, 
+                                    string: req.body.busca});
   }).catch((err)=>{
-    resp.send(err);
+    resp.send('errorComMensagem', {erroMensagem: err});
   })
 })
 
