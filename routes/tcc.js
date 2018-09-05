@@ -26,6 +26,7 @@ router.get('/:isbn', function(req, res, next) {
                                 curso: result[0].curso,
                                 ano: result[0].ano,
                                 semestre: result[0].semestre,
+                                orientadores: result[0].orientadores
                               });
       }).catch(() => {
           console.log(`erro mostrar`);

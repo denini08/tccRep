@@ -7,11 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <h2>ME de papai</h2>
     <h2><%= string%></h2>
+    <% if(retorno.length == 0){ %>
+        <h2>Nada Encotrado :(</h2>    
+    <% } %>
     <% for(var i=0; i < retorno.length; i++){ %>
-    <h1> <%= retorno[i].titulo %> </h1>
-    <h1> <%= retorno[i].isbn %> </h1>
+        <div>
+            <h4> Titulo: <%= retorno[i].titulo %> </h4>
+            <h4>Isbn: <%= retorno[i].isbn %> </h4>
+            <h4>Tema: <%= retorno[i].tema%></h4>
+            <h4>Curso: <%= retorno[i].curso%></h4>
+            <h4>Autor: <%= retorno[i].autor%></h4>
+            <h4>Ano: <%= retorno[i].ano%></h4>
+            <h4>Orientadores: <%= retorno[i].orientadores%></h4>
+            <br>
+        </div>
     <% } %>
 </body>
 </html>
