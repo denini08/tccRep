@@ -56,7 +56,7 @@ class TCCBusiness {
             }).catch((err)=>{
               reject(err);
             })
-            break;
+          break;
 
           case 'isbn':
             this.tccPersistor.searchIsbn(req.busca).then((res)=>{
@@ -64,48 +64,48 @@ class TCCBusiness {
             }).catch((err)=>{
               reject(err);
             });
-            break;
+          break;
 
           case 'tema':
+          console.log("TAMAAA")
             this.tccPersistor.searchTema(req.busca).then((res)=>{
               resolve(res);
             }).catch((err)=>{
               reject(err);
             });
-            break;
+          break;
 
           case 'autor':
-          this.tccPersistor.searchAutor(req.busca).then((res)=>{
-            resolve(res);
-          }).catch((err)=>{
-            reject(err);
-          });
-            break;
+            this.tccPersistor.searchAutor(req.busca).then((res)=>{
+              resolve(res);
+            }).catch((err)=>{
+              reject(err);
+            });
+          break;
 
           case 'curso':
-          this.tccPersistor.searchCurso(req.busca).then((res)=>{
-            resolve(res);
-          }).catch((err)=>{
-            reject(err);
-          });
-            break;
+            this.tccPersistor.searchCurso(req.busca).then((res)=>{
+              resolve(res);
+            }).catch((err)=>{
+              reject(err);
+            });
+          break;
 
           case 'orientador':
-          this.tccPersistor.orientador(req.busca).then((res)=>{
-            resolve(res);
-          }).catch((err)=>{
-            reject(err);
-          });
-            break;
+            this.tccPersistor.searchOrientador(req.busca).then((res)=>{
+              resolve(res);
+            }).catch((err)=>{
+              reject(err);
+            });
+           break;
 
           case 'ano':
-          this.tccPersistor.ano(req.busca).then((res)=>{
-            console.log("ANOOOOOO")
-            resolve(res);
-          }).catch((err)=>{
-            reject(err);
-          });
-            break;
+            this.tccPersistor.searchAno(req.busca).then((res)=>{
+              resolve(res);
+            }).catch((err)=>{
+              reject(err);
+            });
+          break;
             
           default:
             reject('parametro nao inserido');

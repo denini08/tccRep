@@ -71,6 +71,7 @@ router.post('/delete', (request, response) => {
 router.post('/search', (req,resp) =>{
   console.log("Busca " + req.body.busca + " campo "+ req.body.campo)
   const b = req.body;
+  console.log(b);
   tccBusiness.searchTcc(b).then((res)=>{
     resp.send(res);
   }).catch((err)=>{
