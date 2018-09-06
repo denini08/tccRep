@@ -1,69 +1,38 @@
-body{
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 25px;
-  color: #3b4045;
-  font-family: "Josefin Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-/*Nav*/
-.logo {
-  display: inline-block; }
-  .logo h1 {
-    color: #444;
-    font-size: 25px;
-    margin: 0;
-    line-height: 1; }
+/* RESET */
+* {margin: 0; padding: 0; font-size: 100%; font-family: 'Open Sans', sans-serif; font-weight: normal;
+box-sizing:border-box; border:none; outline: none; }
+img {max-width: 100%;}
+ul {list-style: none;}
+a {text-decoration: none;}
+h2 {font-size: 1.5em; color: #333;}
+p {font-size: 1em; color: #777;}
 
-.navigation {
-  background-color: transparent;
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  -ms-transition: all 0.3s ease-in-out 0s;
-  -o-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-  padding: 10px 50px;
-  margin: 0;
-  border: 0; }
-  .navigation .navbar-brand {
-    display: inline-block; 
-  }
-  
-.menu {
-  margin-top: 14px; }
-  .menu li {
-    display: inline-block;
-    margin: 0 10px; }
-    .menu li a {
-      color: #444;
-      font-size: 14px;
-      font-weight: bold;
-    display: inline; }
+/* CABEÇALHO */
+.cabecalho {width: 100%; float: left; padding: 50px 8%; background-color: #13c7ae;}
+.logo a { width: 64px; height: 64px; float: left; background-image: url(../upelogo.jpg); font-size: 0;}
 
-label{
-  display: inherit;
-}
+/* MENU */
+.menu { padding: 0px 8%;}
+.menu li {float: right;}
+.menu li a {color: white; margin-right: 25px;}
+.menu li a:hover {color: black;}
 
-input[type=text] {
-  -webkit-transition: width 1.5s ease-in-out;
-  transition: width 1.5s ease-in-out;
-}
+/* FORMULÁRIO */
+.form {width: 100%; padding: 200px 8%;}
+.form label {display: block;font-size: 20px;}
+.text-btn label{font-size: 15px;}
 
-input[type=text]:focus {
-  width: 50%;
-}
 
-.button {
-  display: inline-block;
-  border-radius: 12px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 14px;
-  padding: 20px;
-  width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
+/* RESPONSIVO*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { }
+
+ Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { }
+
+Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  } */

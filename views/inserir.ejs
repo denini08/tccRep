@@ -4,73 +4,110 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit=no">
+        <link rel="stylesheet" href="/stylesheets/style.css">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <title>Insert TCC</title>
     </head>
-    <body id="body">
-        <div class="container">
-            <nav class="navbar navigation" id="">
-                <a class="navbar-brand logo" href="#">
-                        <h1>Sistema TCC</h1>
-                </a>
-                    <ul class="navbar navigation menu" id="">
-                        <li>
-                            <a href="">Home</a>
-                        </li>
-                        <li>
-                            <a href="">News</a>
-                        </li>
-                        <li>
-                            <a href="">Contact</a>
-                        </li>
-                        <li>
-                            <a href="">About</a>
-                        </li>
-                    </ul>
-
+    <body>
+        <header class="cabecalho">
+			<h1 class="logo">
+				<a href="inserir.ejs" title="Sistema TCC"> Sistema TCC </a>
+            </h1>
+            <nav class="menu">
+                <ul>
+                    <li> <a href="#">Contato</a> </li>
+                    <li> <a href="#">Produtos</a> </li>
+                    <li> <a href="#">Serviços</a> </li>
+                    <li> <a href="#">Home</a> </li>
+                </ul>
             </nav>
-        </div>
+        </header>   
 
-
-
-        <section class="form-tcc">
+        <main class="container form form-group">
             <form action="/tcc/insert" method="POST"> 
-            <div class="container">
+                <div class="form-group">
                     <label for="isbn">ISBN</label>
-                    <input id="isbn" name="isbn" placeholder="ISBN" required>
-    
-                    <label for="titulo">Titulo</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Titulo" required>
-
-                    <label for="tema">Tema</label>
-                    <input type="text" id="tema" name="tema" placeholder="Tema" required>
-
-                    <label for="autor">Autor</label>
-                    <input type="text" id="autor" name="autor" placeholder="Autor" required>
-
-                    <label for="curso">Curso</label>
-                    <select name="curso" id="curso">
-                        <option value="none"></option>
-                        <option value="sistemas">Sistemas de Informação</option>
-                        <option value="adm">Administração</option>
-                    </select>
-
-                    <label for="ano">Ano</label>
-                    <input type="number" id="ano" name="ano"  min="1990" max="2018" required>
-
-                    <label for="semestre">Semestre</label>
-                    <input type="number" id="semestre" name="semestre" min="1" max="2" required>
-
-                    <label for="Orientadores">Orientadores</label>
-                    <input type="text" id="orientadores" name="orientadores" placeholder="Orientadores" required>
-                    <br>
-                    <button class="button btn"type="submit-success">Enviar</button>
-
+                    <input id="isbn" name="isbn" class="form-control" placeholder="Código ISBN" required>
                 </div>  
-            </form>
-        </section>
+                
+                <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Titulo do TCC" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tema">Tema</label>
+                    <input type="text" id="tema" name="tema" class="form-control" placeholder="Tema" required>
+                </div>
+
+                <div class="form-group">
+                        <label for="palavras-chave">Palavras-chave</label>
+                        <input type="text" id="tema" name="palavras-chave" class="form-control" placeholder="Palavras-chave" required>
+                        <small id="textHelp" class="form-text text-muted">Separe por VÍRGULA.</small>
+                    </div>
+
+                <div class="form-group">
+                    <label for="autor">Autor</label>
+                    <input type="text" id="autor" name="autor" class="form-control" placeholder="Autor" required>   
+                </div>
+
+                <div class="form-group col-xs-6 col-lg-8">
+                        <label for="semestre">Curso</label>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">Sistemas de Informação</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">Administração</label>
+                        </div>
+                </div>
+
+                <div class="form-group form-row">
+                    <label for="semestre">Semestre</label>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline1">Primeiro</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2">Segundo</label>
+                    </div>
+                    <div class="">
+                            <label for="ano">Ano</label>
+                            <input type="date" id="date" name="ano"  min="1999-01-01" max="2018-12-30" required>
+                    </div>
+                </div> 
+                  
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-6 col-lg-8">
+                        <label for="Orientadores">Orientadores</label>
+                        <input type="text" id="orientadores" name="orientadores" class="form-control" placeholder="Orientadores" required>
+                        <small id="textHelp" class="form-text text-muted">Separe por VÍRGULA.</small>
+                    </div>
+                </div>   
+
+                <div class="form-group">
+                    <div class="col-xs-6 col-sm-4">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Arquivo TCC</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-info">Enviar</button>
+                
+                <!-- Alerta de Sucesso 
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Muito bem!</h4>
+                    <p>O TCC foi submetido. Ele irá passar por avaliações quanto a sua veracidade para ser publicado.</p>
+                    <hr>
+                    <p class="mb-0">Quaisquer dúvida entre em contato com a Escolaridade UPE Caruaru.</p>
+                  </div> -->
+        </main>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
