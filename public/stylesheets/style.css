@@ -22,6 +22,13 @@ p {font-size: 1em; color: #777;}
 .form label {display: block;font-size: 20px;}
 .text-btn label{font-size: 15px;}
 
+/* RODAPÉ */
+.rodape{width: 100%; float: left; background-color: #13c7ae; padding: 50px 8%;}
+.texto-rodape-upe{float: left;color: white;}
+.texto-rodape-upe a{color: white;}
+.texto-rodape-upe a:hover{color: black;}
+
+
 
 /* RESPONSIVO*/
 
