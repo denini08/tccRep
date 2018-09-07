@@ -18,11 +18,11 @@
             </h1>
             <nav class="menu">
                 <ul>
-                    <li> <a href="#">Contato</a> </li>
-                    <li> <a href="#">Alterar</a> </li>
-                    <li> <a href="#">Buscar</a> </li>
-                    <li> <a href="#">Inserir</a> </li>
-                    <li> <a href="#">Home</a> </li>
+                    <li><a href="#">Contato</a> </li>
+                    <li><a href="#">Alterar</a> </li>
+                    <li><a href="#">Buscar</a> </li>
+                    <li><a href="#">Inserir</a> </li>
+                    <li><a href="#">Home</a> </li>
                 </ul>
             </nav>
         </header>   
@@ -83,13 +83,13 @@
                     </div>
                     <div class="col-md-2">
                         <label for="ano">Ano</label>
-                        <input type="number" id="numer" name="ano"  min="1999" max="2018" required>
+                        <input type="text" required="required" name="numbers" pattern="[0-9]+$" placeholder="Ano de Conclusão" required/>
                     </div>
                 </div>
                  
                 <div class="form-group custom-file col-md-4">
                     <input type="file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Arquivo TCC</label>
+                    <label class="custom-file-label" for="customFile" required>Arquivo TCC</label>
                     <small>Faça o upload do seu arquivo</small>
                     <br><br>
                 </div>
@@ -97,13 +97,6 @@
                 <div class="form-group">
                     <button type="button" class="btn btn-outline-info">Enviar</button>
                 </div>
-                <!-- Alerta de Sucesso 
-                <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Muito bem!</h4>
-                    <p>O TCC foi submetido. Ele irá passar por avaliações quanto a sua veracidade para ser publicado.</p>
-                    <hr>
-                    <p class="mb-0">Quaisquer dúvida entre em contato com a Escolaridade UPE Caruaru.</p>
-                  </div> -->
         </main>
         <footer class="rodape texto-rodape-upe">
             <!-- Footer Links -->
