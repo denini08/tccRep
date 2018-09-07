@@ -9,7 +9,8 @@ p {font-size: 1em; color: #777;}
 
 /* CABEÇALHO */
 .cabecalho {width: 100%; float: left; padding: 50px 8%; background-color: #13c7ae;}
-.logo a { width: 64px; height: 64px; float: left; background-image: url(../upelogo.jpg); font-size: 0;}
+.logo a {width: 100%; float: left; font-size: 0; background-image: url(../upelogo.jpg) no-repeat; } 
+.navbar { position: absolute;}
 
 /* MENU */
 .menu { padding: 0px 8%;}
@@ -24,6 +25,7 @@ p {font-size: 1em; color: #777;}
 
 /* RODAPÉ */
 .rodape{width: 100%; float: left; background-color: #13c7ae; padding: 50px 8%;}
+.rodape p{-webkit-text-fill-color: azure;}
 .texto-rodape-upe{float: left;color: white;}
 .texto-rodape-upe a{color: white;}
 .texto-rodape-upe a:hover{color: black;}

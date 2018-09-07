@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <title>Insert TCC</title>
+        <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
     </head>
     <body>
         <header class="cabecalho">
@@ -26,6 +27,14 @@
                 </ul>
             </nav>
         </header>   
+
+        <!-- Alerta de Sucesso 
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Muito bem!</h4>
+            <p>O TCC foi submetido. Ele irá passar por avaliações quanto a sua veracidade para ser publicado.</p>
+            <hr>
+            <p class="mb-0">Quaisquer dúvida entre em contato com a Escolaridade UPE Caruaru.</p>
+        </div> -->
 
         <main class="container form form-group">
             <form action="/tcc/insert" method="POST"> 
@@ -63,40 +72,39 @@
 
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="semestre">Curso</label>
-                        <select id="semestre" class="form-control">
+                        <label for="curso">Curso</label>
+                        <select name="curso" class="form-control">
                                 <option selected>Selecione...</option>
-                                <option value="sistemas">Sistemas de Informação</option>
-                                <option value="adm">Administração</option>
+                                <option value="Sistemas de Informação">Sistemas de Informação</option>
+                                <option value="Administração">Administração</option>
                         </select>
                     </div>
                     <div class="col-md-4">
                         <label for="semestre">Semestre</label>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadioInline1">Primeiro</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadioInline2">Segundo</label>
-                        </div>
+                        <select name="semestre" class="form-control">
+                            <option selected>Selecione...</option>
+                            <option value="1">XXXX.1</option>
+                            <option value="2">XXXX.2</option>
+                        </select>
                     </div>
                     <div class="col-md-2">
                         <label for="ano">Ano</label>
-                        <input type="text" required="required" name="numbers" pattern="[0-9]+$" placeholder="Ano de Conclusão" required/>
+                        <input type="text" id="ano" required="required" name="ano" pattern="[0-9]+$" placeholder="Ano de Conclusão"/>
                     </div>
                 </div>
                  
                 <div class="form-group custom-file col-md-4">
                     <input type="file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile" required>Arquivo TCC</label>
+                    <label class="custom-file-label" for="customFile">Arquivo TCC</label>
                     <small>Faça o upload do seu arquivo</small>
                     <br><br>
                 </div>
                 
                 <div class="form-group">
-                    <button type="button" class="btn btn-outline-info">Enviar</button>
+                    <button type="submit" class="btn btn-outline-info">Enviar</button>
                 </div>
+
+                
         </main>
         <footer class="rodape texto-rodape-upe">
             <!-- Footer Links -->
@@ -106,46 +114,24 @@
               <!-- Grid column -->
               <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 ">
                 <!-- Content -->
-                <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                <h6 class="text-uppercase font-weight-bold">UPE</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <address>
-                        UNIVERSIDADE DE PERNAMBUCO (UPE) – Campus Caruaru
-                        Polo Comercial de Caruaru
-                </address> 
+                <p>Universidade de Pernambuco (UPE) – Campus Caruaru</p> 
+
+                <h6 class="text-uppercase font-weight-bold">Contatos</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p><i class="fas fa-at"></i><a href="www.upe.br"> upe.br</a></p>
+                <p><i class="fas fa-phone"></i></i><a href="tel:+558137199448"> (81) 3719-9448</a></p>
+                
               </div>
               <!-- Grid column -->
-      
+
               <!-- Grid column -->
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-8">
                 <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">Products</h6>
+                <h6 class="text-uppercase font-weight-bold">Como Chegar</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><a href="#!">MDBootstrap</a></p>
-                <p><a href="#!">MDWordPress</a></p>
-                <p><a href="#!">BrandFlow</a></p>
-                <p><a href="#!">Bootstrap Angular</a></p>
-              </div>
-              <!-- Grid column -->
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><a href="#!">Your Account</a></p>
-                <p><a href="#!">Become an Affiliate</a></p>
-                <p><a href="#!">Shipping Rates</a></p>
-                <p><a href="#!">Help</a></p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">Contato</h6>
-                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><i class="fas fa-map-marker-alt"></i>Avenida Projetada 01, s/n – Nova Caruaru, Caruaru/PE CEP: 55014-908</p>
-                <p><i class="fa fa-envelope mr-3"></i>upe.br</p>
-                <p><i class="fa fa-phone mr-3"></i><a href="tel:+558137199448">(81) 3719-9448</a></p>
+                <iframe class="embed-responsive" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15794.557753125548!2d-35.9802351!3d-8.2389636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82d5017c11cd76fb!2sUPE+-+Universidade+de+Pernambuco!5e0!3m2!1spt-BR!2sbr!4v1536346515941" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
               </div>
               <!-- Grid column -->
             </div>
