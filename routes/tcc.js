@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 //GET
 
 router.get('/insert', (req,res)=>{
-    res.render('inserir');
+    res.render('inserir', { link: "http://localhost:3000/tcc/insert" });
 });
 
 router.get('/:isbn', function(req, res, next) {
