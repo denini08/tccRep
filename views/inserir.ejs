@@ -14,17 +14,13 @@
     </head>
     <body>
         <header class="cabecalho">
-			<h1 class="logo">
-				<a href="inserir.ejs" title="Sistema TCC"> Sistema TCC </a>
-            </h1>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#">Contato</a> </li>
-                    <li><a href="#">Alterar</a> </li>
-                    <li><a href="#">Buscar</a> </li>
-                    <li><a href="#">Inserir</a> </li>
-                    <li><a href="#">Home</a> </li>
-                </ul>
+			<a href="#"> <img src="/logoupe.png" alt="Sistema TCC"></a>
+            <nav>
+                <li><a href="#">Home</a> </li>
+                <li><a href="#">Inserir</a> </li>
+                <li><a href="#">Buscar</a> </li>
+                <li><a href="#">Alterar</a> </li>
+                <li><a href="#">Contato</a> </li>
             </nav>
         </header>   
 
@@ -65,8 +61,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="Orientadores">Orientadores</label>
-                    <input type="text" id="orientadores" name="orientadores" class="form-control" placeholder="Orientadores" required>
+                    <label for="Orientadores">Orientador(es)</label>
+                    <input type="text" id="orientadores" name="orientadores" class="form-control" placeholder="Orientador(es)" required>
                     <small id="textHelp" class="form-text text-muted">Separe por VÍRGULA.</small>
                 </div>
 
@@ -105,12 +101,8 @@
                 </div>   
             </form>    
         </main>
-        <footer class="rodape">
-            <div class="container">
-                <div class="col-md-8">
-                    <p>Sistema TCC v1.0</p>
-                </div>
-            </div>
+        <footer>
+            <p>Sistema TCC v1.0</p>
         </footer>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
