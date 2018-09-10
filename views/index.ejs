@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit=no">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <title>Buscar TCC</title>
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+    <% include include/head.ejs %> 
 </head>
 <body>
-    <header class="cabecalho bg">
-            <% var link= "http://localhost:3000/tcc/insert"%>
-            <% var busca= "http://localhost:3000/tcc"%>
-            <a href="#"> <img src="/logoupe.png" alt="Sistema TCC"></a>
-            <nav>
-                <li><a href="">Home</a> </li>
-                <li><a href="<%= link %>">Inserir</a> </li>
-                <li><a href="<%= busca %>">Buscar</a> </li>
-                <li><a href="#">Alterar</a> </li>
-                <li><a href="#">Contato</a> </li>
-            </nav>
-    </header>
-    <form action="/tcc/search" method="POST">
-        <select name="campo" id="curso">
-            <option value="titulo">Titulo</option>
-            <option value="isbn">Isbn</option>
-            <option value="tema">Tema</option>
-            <option value="autor">Autor</option>
-            <option value="ano">Ano</option>
-            <option value="curso">Curso</option>
-            <option value="orientador">Orientador</option>
-        </select>
-        <input type="text" id="busca" name="busca" placeholder="Busca TCC" required>
-        <button class="button"  type="submit">Buscar</button>
-    </form>
+    <% include include/header.ejs %> 
+    <main class="container form form-group">
+        <form action="/tcc/search" method="POST">
+            <div class="form-group">
+                <select class="custom-select col-sm-2" name="campo" id="curso">
+                    <option value="titulo">Titulo</option>
+                    <option value="tema">Tema</option>
+                    <option value="autor">Autor</option>
+                    <option value="ano">Ano</option>
+                    <option value="curso">Curso</option>
+                    <option value="orientador">Orientador</option>
+                    <option value="coorientador">Co-orientador</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="form-control col-md-4" type="text" id="busca" name="busca" placeholder="Busca TCC" required  autocomplete="off">
+            </div>
+            <button class="btn btn-outline-info"  type="submit">Buscar</button>
+        </form>
+    </main>
+    <div id="footer">
+
+    </div>
 </body>
 </html>

@@ -1,50 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit=no">
-        <link rel="stylesheet" href="/stylesheets/style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <% include include/head.ejs %>
         <title>Buscas</title>
-    </head>
+    </head>         
     <body>
-        <header class="cabecalho">
-			<h1 class="logo">
-				<a href="inserir.ejs" title="Sistema TCC"> Sistema TCC </a>
-            </h1>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#">Contato</a> </li>
-                    <li><a href="#">Alterar</a> </li>
-                    <li><a href="#">Buscar</a> </li>
-                    <li><a href="#">Inserir</a> </li>
-                    <li><a href="#">Home</a> </li>
-                </ul>
-            </nav>
-        </header> 
-    <body>
-        <main class="container form">
+        <% include include/header.ejs %>
+        <main class="form container">
                 <h2><%= string%></h2>
                 <% if(retorno.length == 0){ %>
                     <h2>Nada Encotrado :(</h2>    
                 <% } %>
                 <% for(var i=0; i < retorno.length; i++){ %>
                     <div>
-                        <h4>Título: <%= retorno[i].titulo %> </h4>
-                        <h4>ISBN: <%= retorno[i].isbn %> </h4>
-                        <h4>Tema: <%= retorno[i].tema%></h4>
-                        <h4>Curso: <%= retorno[i].curso%></h4>
-                        <h4>Autor: <%= retorno[i].autor%></h4>
-                        <h4>Ano: <%= retorno[i].ano%></h4>
-                        <h4>Semestre: <%= retorno[i].semestre%></h4>
-                        <h4>Orientadores: <%= retorno[i].orientadores%></h4>
+                        <p>Título: <%= retorno[i].titulo %> </p>
+                        <p>Tema: <%= retorno[i].tema%></p>
+                        <p>Curso: <%= retorno[i].curso%></p>
+                        <p>Autor: <%= retorno[i].autor%></p>
+                        <p>Ano: <%= retorno[i].ano%></p>
+                        <p>Semestre: <%= retorno[i].semestre%></p>
+                        <p>Orientadores: <%= retorno[i].orientadores%></p>
                         <br>
                     </div>
                 <% } %>
         </main>
+        <% include include/footer.ejs %>
+        <% include include/scripts.ejs %>
     </body>
 </html>

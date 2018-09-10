@@ -7,7 +7,6 @@ var router = express.Router();
 router.use(bodyParser.json());
 
 //GET
-
 router.get('/insert', (req,res)=>{
     res.render('inserir', { mensagem: null });
 });
