@@ -21,17 +21,25 @@ p {font-size: 1em; color: #777;}
     align-items: center;
     padding: 20px 50px;
 }
+
+@media (min-width: 320px){
+    .cabecalho { height: 20vh;}
+    header img{width: 75px; height: auto;}
+    nav a{font-size: 14px;}
+
 @media(max-width: 700px){
     .cabecalho {position: relative; height: 17vh;}
     .form-group {padding-top: 2%;padding-bottom: 2%;}
 }
 
+}
 header nav{display: flex;}
 header li a{color: azure;}
 header li {margin: 0 15px;}
 header li:first-child{margin-left: 0;}
 header li:last-child{margin-right: 0;}
 @media(max-width: 700px){
+    
     header {flex-direction: column;}
     header img{margin-bottom: 15px;}
     header li{justify-content: center; margin: 0 8px;}
