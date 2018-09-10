@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 //GET
 
 router.get('/insert', (req,res)=>{
-    res.render('inserir', { link: "http://localhost:3000/tcc/insert" });
+    res.render('inserir', { mensagem: null });
 });
 
 router.get('/:isbn', function(req, res, next) {
@@ -54,7 +54,7 @@ router.post('/insert', (req,res,next) =>{
       b.semestre,
       b.orientadores
     ).then(() => {
-      res.render("sucesso");
+      res.render('inserir', { mensagem: 'Tcc inserido com sucesso!!' });
     }).catch((err) => {
       res.render('errorComMensagem', {erroMensagem: err});
     });

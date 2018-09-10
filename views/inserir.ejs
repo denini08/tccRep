@@ -14,6 +14,7 @@
     </head>
     <body>
         <header class="cabecalho bg">
+            <% var link= "http://localhost:3000/tcc/insert"%>
 			<a href="#"> <img src="/logoupe.png" alt="Sistema TCC"></a>
             <nav>
                 <li><a href="<%= link %>">Home</a> </li>
@@ -24,13 +25,13 @@
             </nav>
         </header>   
 
-        <!-- Alerta de Sucesso 
+       <%if(mensagem != null) {%>
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Muito bem!</h4>
-            <p>O TCC foi submetido. Ele irá passar por avaliações quanto a sua veracidade para ser publicado.</p>
+            <p><%= mensagem %></p>
             <hr>
-            <p class="mb-0">Quaisquer dúvida entre em contato com a Escolaridade UPE Caruaru.</p>
-        </div> -->
+        </div> 
+        <% } %>
 
         <main class="container form form-group">
             <form action="/tcc/insert" method="POST"> 
