@@ -21,24 +21,16 @@ p {font-size: 1em; color: #777;}
     align-items: center;
     padding: 20px 50px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 @media (min-width: 320px){
     .cabecalho { height: 20vh;}
     header img{width: 75px; height: auto;}
     nav a{font-size: 14px;}
-=======
-=======
->>>>>>> d66c5f97644c23ba3ee283295a31b0114491a6e5
+
 @media(max-width: 700px){
     .cabecalho {position: relative; height: 17vh;}
     .form-group {padding-top: 2%;padding-bottom: 2%;}
 }
-<<<<<<< HEAD
->>>>>>> d66c5f97644c23ba3ee283295a31b0114491a6e5
-=======
->>>>>>> d66c5f97644c23ba3ee283295a31b0114491a6e5
-
 
 }
 header nav{display: flex;}
