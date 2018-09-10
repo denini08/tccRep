@@ -38,8 +38,7 @@ header li a{color: azure;}
 header li {margin: 0 15px;}
 header li:first-child{margin-left: 0;}
 header li:last-child{margin-right: 0;}
-@media(max-width: 700px){
-    
+@media(max-width: 700px){  
     header {flex-direction: column;}
     header img{margin-bottom: 15px;}
     header li{justify-content: center; margin: 0 8px;}
