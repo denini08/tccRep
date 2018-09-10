@@ -14,3 +14,13 @@ CREATE TABLE Trabalhos (
 
   PRIMARY KEY (id)
 );
+
+CREATE TABLE admins (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    nome varchar(150) DEFAULT NULL,
+    login varchar(13) NOT NULL,
+    senha varchar(150) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+insert into admins(nome, login, senha) values ('O grande rei', 'admin', '123');
