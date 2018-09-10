@@ -11,14 +11,14 @@ router.get('/insert', (req,res)=>{
     res.render('inserir', { mensagem: null });
 });
 
-router.get('/:isbn', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
     a = req.params;
-   if(isNaN(a.isbn)){
-       res.render('errorComMensagem', {erroMensagem:  'Não foi possível encontrar esse tcc, verifique se o isbn é um numero'});
+   if(isNaN(a.id)){
+       res.render('errorComMensagem', {erroMensagem:  'Não foi possível encontrar esse tcc, verifique se o id é um numero'});
       return;
     }
-    tccBusiness.searchTccByIsbn(a.isbn).then((result) => {
-      res.render("mostrar_tcc", {isbn: result[0].isbn,
+    tccBusiness.searchTccById(a.id).then((result) => {
+      res.render("mostrar_tcc", {
                                 titulo: result[0].titulo, 
                                 tema: result[0].tema,
                                 autor: result[0].autor,
@@ -29,7 +29,7 @@ router.get('/:isbn', function(req, res, next) {
                               });
       }).catch(() => {
           console.log(`erro mostrar`);
-          res.render('errorComMensagem', {erroMensagem:  'Não foi possível encontrar esse tcc, verifique o isbn'});
+          res.render('errorComMensagem', {erroMensagem:  'Não foi possível encontrar esse tcc, verifique o id'});
       });
    
 });
@@ -44,7 +44,6 @@ router.post('/insert', (req,res,next) =>{
     const b = req.body;
     console.log(b);
     tccBusiness.insertTcc(
-      b.isbn,
       b.titulo,
       b.tema,
       b.autor,
@@ -61,7 +60,7 @@ router.post('/insert', (req,res,next) =>{
 
 router.post('/delete', (request, response) => {
     const b = request.body;
-    tccBusiness.deleteTcc(b.isbn).then((res) => {
+    tccBusiness.deleteTcc(b.id).then((res) => {
       response.send('excluido: ' + res);
     }).catch((err) => {
       response.send('erro: ' + err);
@@ -80,7 +79,7 @@ router.post('/search', (req,resp) =>{
     resp.send('errorComMensagem', {erroMensagem: err});
   })
 })
-
+ 
 router.post('/teste', (req,res)=>{
   console.log('aeee');
   res.send(req.body);

@@ -8,23 +8,19 @@ class TCCBusiness {
                                     consideração a arquitetura de camadas */
   }
 
-  insertTcc(isbn, titulo, tema, autor, curso, ano, semestre, orientadores) {
+  insertTcc(titulo, tema, autor, curso, ano, semestre, orientadores) {
     return new Promise((resolve, reject) => {
-      this.tccPersistor.insert(isbn, titulo, tema, autor, curso, ano, semestre, orientadores).then((res) => {
+      this.tccPersistor.insert(titulo, tema, autor, curso, ano, semestre, orientadores).then((res) => {
         resolve(res);
       }).catch((err) => {
-        if(err.code == 'ER_DUP_ENTRY'){
-          reject('Já existe um documento com esse ISBN');
-        }else{
           reject(err);
-        }
       });
     });
   }
 
-  deleteTcc(isbn) {
+  deleteTcc(id) {
     return new Promise((resolve, reject) => {
-      this.tccPersistor.delete(isbn).then((res) => {
+      this.tccPersistor.delete(id).then((res) => {
         resolve(res);
       }).catch((err) => {
         reject(err);
@@ -33,9 +29,9 @@ class TCCBusiness {
   }
 
   
-  searchTccByIsbn(isbn) {
+  searchTccById(id) {
     return new Promise((resolve, reject) => {
-      this.tccPersistor.searchIsbn(isbn).then((res) => {
+      this.tccPersistor.searchId(id).then((res) => {
         resolve(res);
       }).catch((res) => {
         reject(res);
@@ -58,16 +54,7 @@ class TCCBusiness {
             })
           break;
 
-          case 'isbn':
-            this.tccPersistor.searchIsbn(req.busca).then((res)=>{
-              resolve(res);
-            }).catch((err)=>{
-              reject(err);
-            });
-          break;
-
           case 'tema':
-          console.log("TAMAAA")
             this.tccPersistor.searchTema(req.busca).then((res)=>{
               resolve(res);
             }).catch((err)=>{

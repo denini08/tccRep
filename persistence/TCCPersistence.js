@@ -1,15 +1,15 @@
 const conn = require('./ConnectionDB.js');
-const ATRIBUTOS = ' isbn, titulo, tema, autor, curso, ano, orientadores '
+const ATRIBUTOS = ' titulo, tema, autor, curso, ano, orientadores '
 
 
 class TCCPersistence {
   constructor() {
     this.connection = conn;
   }
-  insert(isbn, titulo, tema, autor, curso, ano, semestre, orientadores) {
+  insert( titulo, tema, autor, curso, ano, semestre, orientadores) {
     return new Promise((resolve, reject) => {
-      const sql = 'INSERT INTO Trabalhos (isbn, titulo, tema, autor, curso, ano, semestre, orientadores) VALUES ? ';
-      const values = [[isbn, titulo, tema, autor, curso, ano, semestre, orientadores]];
+      const sql = 'INSERT INTO Trabalhos ( titulo, tema, autor, curso, ano, semestre, orientadores) VALUES ? ';
+      const values = [[titulo, tema, autor, curso, ano, semestre, orientadores]];
       this.connection.query(sql, [values], (err, result) => {
         if (err) reject(err);
         resolve(result);
@@ -17,9 +17,9 @@ class TCCPersistence {
   })
 }
 
-  delete(isbn) {
+  delete(id) {
     return new Promise((resolve, reject) => {
-      const sql = "DELETE FROM trabalhos WHERE isbn='" + isbn + "';";
+      const sql = "DELETE FROM trabalhos WHERE id='" + id + "';";
       this.connection.query(sql, (err, result) => {
       console.log(sql);
         if (err) reject(err);
@@ -28,10 +28,10 @@ class TCCPersistence {
     });
   }
 
-  searchIsbn(isbn) {
-    const sql = "SELECT * FROM trabalhos WHERE isbn = ?;";
+  searchId(id) {
+    const sql = "SELECT * FROM trabalhos WHERE id = ?;";
     return new Promise((resolve, reject) => {
-      this.connection.query(sql,[isbn], (err, result) => {
+      this.connection.query(sql,[id], (err, result) => {
         if (err) reject(err);
         resolve(result);
       });
