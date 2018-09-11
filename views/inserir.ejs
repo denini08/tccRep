@@ -30,48 +30,47 @@
                     <label for="autor">Autor</label>
                     <input type="text" id="autor" name="autor" class="form-control" placeholder="Autor" required>   
                 </div>
-
-                <div class="form-group">
-                    <label for="Orientadores">Orientador</label>
-                    <div class="orientadores">
-                          
+                <div class="TESTE">
+                    <div class="form-group grupo-orientadores">
+                        <label for="orientadores">Orientador</label>
+                        <input class="col-8 form-group form-control " type="text" placeholder="1" id="orientadores1">
+                        <input class="col-8 form-group form-control " type="text" placeholder="2" id="orientadores2">
+                        <input class="col-8 form-group form-control " type="text" placeholder="3" id="orientadores3">
                     </div>
-                
-                </div>
-
-                <div class="form-group">
-                    <label for="coorientador">Co-orientador</label>
-                    <div class="orientadores">
-                   
+    
+                    <div class="form-group grupo-coorientadores">
+                        <label for="coorientador">Co-orientador</label>
+                        <input class="col-8 form-group form-control " type="text" placeholder="1" id="coorientador1">
+                        <input class="col-8 form-group form-control " type="text" placeholder="2" id="coorientador2">
+                        <input class="col-8 form-group form-control " type="text" placeholder="3" id="coorientador3">
                     </div>
-                
                 </div>
-
-                <div class="form-group row">
-                    <div class="col-md-4">
+                
+                <div class=" TESTE">
+                    <div class="form-group grupo-orientadores">
                         <label for="curso">Curso</label>
-                        <select name="curso" class="form-control">
-                                <option selected>Selecione...</option>
+                        <select name="curso" class="form-control col-8">
+                                <option selected>Selecione</option>
                                 <option value="Sistemas de Informação">Sistemas de Informação</option>
                                 <option value="Administração">Administração</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="form-group grupo-orientadores">
                         <label for="semestre">Semestre</label>
-                        <select name="semestre" class="form-control">
-                            <option selected>Selecione...</option>
+                        <select name="semestre" class="form-control col-4">
+                            <option selected>Selecione</option>
                             <option value="1">XXXX.1</option>
                             <option value="2">XXXX.2</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="form-group grupo-orientadores">
                         <label for="ano">Ano</label>
-                        <input type="text" id="ano" required="required" name="ano" pattern="[0-9]+$" placeholder="Ano de Conclusão"/>
+                        <input class="form-control col-6" type="text" id="ano" required="required" name="ano" placeholder="Ano de Conclusão"/>
                     </div>
                 </div>
-                 
-                <div class="form-group custom-file col-md-4">
-                    <input type="file" class="custom-file-input" id="customFile">
+
+                <div class="form-group custom-file col-4">
+                    <input type="file" class="custom-file-input lang" id="customFile" lang="pt-br">
                     <label class="custom-file-label" for="customFile">Arquivo TCC</label>
                     <small>Faça o upload do seu arquivo</small>
                     <br><br>
