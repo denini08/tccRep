@@ -40,6 +40,8 @@ header li:last-child{margin-right: 0;}
 }
 .completar-campo{width: 100%;}
 
+.small-upload{display: flex;width: 200px;margin-left: -10px;color: #6c757d!important;}
+
 #nome_input_arquivo{font-size: 16px;}
 
 /* RODAPÉ */
@@ -48,29 +50,48 @@ footer p {color: #fff; text-align: center; justify-content: center;}
 
 
 /* RESPONSIVIDADE */
+
+/* Celular SM */
 @media (max-width: 575.98px){
-    .cabecalho { height: 20vh;}
-    header img{width: 75px; height: auto;}
+    .cabecalho { display: flex; flex-direction: column; height: 18vh;padding-bottom: 25px;padding-top: 30px;}
+    header img{ width: 75px;}
     nav a{font-size: 14px;}
+    .divisao-coluna{flex-direction: column;}
+    .form-group {margin-bottom: 0;}
+    .custom-file-label{width: 199px;}
+    
+    .text-muted {margin-left: 0px;}
 }
 
+/* Tablet MD */
 @media(min-width: 576px) and (max-width: 767.98px){
-    .cabecalho {position: relative; height: 17vh;}
+    .cabecalho { height: 17vh;}
     .form-group {padding-top: 2%;padding-bottom: 2%;}
+    
 }
 
+/* Tablet MD */
 @media(min-width: 768px) and (max-width: 991.98px){  
-    header {flex-direction: column;}
-    header img{margin-bottom: 15px;}
-    header li{justify-content: center; margin: 0 8px;}
-}
+    .completar-campo{margin-right: 15px; }
+    .completar-campo:last-child{
+        margin-right: 0;
+    }
 
+}
+/* Tablet MD */
 @media(min-width: 992px) and (max-width: 1199.98px){  
-    header {flex-direction: column;}
-    header img{margin-bottom: 15px;}
-    header li{justify-content: center; margin: 0 8px;}
+    .cabecalho{ padding: 50px 50px;}
+    .completar-campo{margin-right: 15px; }
+    .completar-campo:last-child{
+        margin-right: 0;
+    }
 }
 
+/* Tablet MD */
 @media (min-width: 1200px) {
-
+    .cabecalho{padding: 20px 160px;}
+    .completar-campo{margin-right: 15px; }
+    .completar-campo:last-child{
+        margin-right: 0;
+    }
 }
