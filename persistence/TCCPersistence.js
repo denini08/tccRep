@@ -6,10 +6,11 @@ class TCCPersistence {
   constructor() {
     this.connection = conn;
   }
-  insert( titulo, tema, autor, curso, ano, semestre, orientadores) {
+  insert( titulo, tema, autor, curso, ano, semestre, orientador, palavras_chave, coorientador ) {
+   // console.log('autor: ' + autor)
     return new Promise((resolve, reject) => {
-      const sql = 'INSERT INTO Trabalhos ( titulo, tema, autor, curso, ano, semestre, orientadores) VALUES ? ';
-      const values = [[titulo, tema, autor, curso, ano, semestre, orientadores]];
+      const sql = 'INSERT INTO Trabalhos ( titulo, tema, autor, curso, ano, semestre, orientadores, coorientadores, palavras_chave) VALUES ? ';
+      const values = [[titulo, tema, autor, curso, ano, semestre, orientador, coorientador, palavras_chave]];
       this.connection.query(sql, [values], (err, result) => {
         if (err) reject(err);
         resolve(result);

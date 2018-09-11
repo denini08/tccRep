@@ -11,7 +11,7 @@ CREATE TABLE Trabalhos (
   pdf varchar(100) DEFAULT NULL,
   orientadores varchar(150) DEFAULT NULL,
   coorientadores varchar(150) DEFAULT NULL,
-
+  palavras_chave varchar(150) DEFAULT NULL,
   PRIMARY KEY (id)
 );
 

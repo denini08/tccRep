@@ -42,15 +42,22 @@ router.get('/', (req,res,next) =>{
 //POST
 router.post('/insert', (req,res,next) =>{
     const b = req.body;
-    console.log(b);
+    //console.log(b.autor);
+    console.log('palavra' + b.palavras_chave)
     tccBusiness.insertTcc(
       b.titulo,
       b.tema,
+      b.palavras_chave,
       b.autor,
+      b.orientadores1,
+      b.orientadores2,
+      b.orientadores3,
+      b.coorientador1,
+      b.coorientador2,
+      b.coorientador3,
       b.curso,
       b.ano,
       b.semestre,
-      b.orientadores
     ).then(() => {
       res.render('inserir', { mensagem: 'Tcc inserido com sucesso!!' });
     }).catch((err) => {
@@ -82,6 +89,7 @@ router.post('/search', (req,resp) =>{
  
 router.post('/teste', (req,res)=>{
   console.log('aeee');
+  console.log(req.body);
   res.send(req.body);
 })
 

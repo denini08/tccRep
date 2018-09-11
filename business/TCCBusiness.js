@@ -8,9 +8,13 @@ class TCCBusiness {
                                     consideração a arquitetura de camadas */
   }
 
-  insertTcc(titulo, tema, autor, curso, ano, semestre, orientadores) {
+  insertTcc(titulo, tema, palavras_chave, autor, orientadores1, orientadores2, orientadores3, coorientador1, coorientador2, coorientador3, curso, ano, semestre) {
     return new Promise((resolve, reject) => {
-      this.tccPersistor.insert(titulo, tema, autor, curso, ano, semestre, orientadores).then((res) => {
+      //console.log('autor: ' + autor)
+      let orientador = orientadores1 + " "+ orientadores2 + " "+ orientadores3;
+      let coorientador = coorientador1 + " "+ coorientador2 + " " +coorientador3;
+
+      this.tccPersistor.insert(titulo, tema, autor, curso, ano, semestre, orientador,palavras_chave, coorientador ).then((res) => {
         resolve(res);
       }).catch((err) => {
           reject(err);
