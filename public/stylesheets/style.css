@@ -33,12 +33,14 @@ header li:last-child{margin-right: 0;}
 .form label {display: block;font-size: 20px;}
 .text-btn label{font-size: 15px;}
 
-.TESTE{
+.divisao-coluna{
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-.grupo-orientadores , .grupo-coorientadores{width: 100%;}
+.completar-campo{width: 100%;}
+
+#nome_input_arquivo{font-size: 16px;}
 
 /* RODAPÉ */
 footer {display: flex; height: 15vh; padding: calc(15vh/2.5);margin: 0; align-items: center;}

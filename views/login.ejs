@@ -1,0 +1,36 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <% include include/head.ejs %> 
+</head>
+<body>
+    <% include include/header.ejs %> 
+
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form-1">
+                <h1>Login</h1>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="E-mail *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Senha *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Login" />
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="ForgetPwd">Esqueceu sua senha?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+    <% include include/footer.ejs %>
+    <% include include/scripts.ejs %>
+</body>
+</html>
