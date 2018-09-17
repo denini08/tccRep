@@ -1,118 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-        <% include include/head.ejs %> 
-        <title>Sistema TCC</title>
+    <% include include/head.ejs %>
+    <title>Sistema TCC</title>
 </head>
+
 <body>
-        <% include include/header.ejs %> 
-       
-        <main class="container form form-group">
-            <form action="/tcc/insert" method="POST" encType="multipart/form-data">  
-                
-                <div class="form-group">
-                    <label for="titulo">Título</label>
-                    <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Titulo do TCC" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="tema">Tema</label>
-                    <input type="text" id="tema" name="tema" class="form-control" placeholder="Tema" required>
+    <% include include/header.ejs %>
+
+    <main class="container form form-group">
+        <form action="/tcc/insert" method="POST" encType="multipart/form-data">
+
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Titulo do TCC" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tema">Tema</label>
+                <input type="text" id="tema" name="tema" class="form-control" placeholder="Tema" required>
+            </div>
+
+            <div class="form-group">
+                <label for="palavras-chave">Palavras-chave</label>
+                <input type="text" id="tema" name="palavras_chave" class="form-control" placeholder="Palavras-chave"
+                    required>
+                <small id="textHelp" class="form-text text-muted">Separe por VÍRGULA.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" name="autor" class="form-control" placeholder="Autor" required>
+            </div>
+            <div class="divisao-coluna">
+                <div class="form-group completar-campo">
+                    <label for="orientadores">Orientador</label>
+                    <input class="col-sm-8 form-group form-control " type="text" placeholder="1" id="orientadores1"
+                        name="orientadores1">
+                    <input class="col-sm-8 form-group form-control " type="text" placeholder="2" id="orientadores2"
+                        name="orientadores2">
+                    <input class="col-sm-8 form-group form-control " type="text" placeholder="3" id="orientadores3"
+                        name="orientadores3">
                 </div>
 
-                <div class="form-group">
-                        <label for="palavras-chave">Palavras-chave</label>
-                        <input type="text" id="tema" name="palavras_chave" class="form-control" placeholder="Palavras-chave" required>
-                        <small id="textHelp" class="form-text text-muted">Separe por VÍRGULA.</small>
+                <div class="form-group completar-campo">
+                    <label for="coorientador">Co-orientador</label>
+                    <input class="col-sm-8 form-group form-control " type="text" placeholder="1" id="coorientador1"
+                        name="coorientador1">
+                    <input class="col-sm-8 form-group form-control " type="text" placeholder="2" id="coorientador2"
+                        name="coorientador2">
+                    <input class="col-sm-8 form-group form-control " type="text" placeholder="3" id="coorientador3"
+                        name="coorientador3">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="autor">Autor</label>
-                    <input type="text" id="autor" name="autor" class="form-control" placeholder="Autor" required>   
+            <div class=" divisao-coluna ">
+                <div class="form-group completar-campo">
+                    <label for="curso">Curso</label>
+                    <select name="curso" class="form-control col-sm-8 col-md-12">
+                        <option selected>Selecione</option>
+                        <option value="Sistemas de Informação">Sistemas de Informação</option>
+                        <option value="Administração">Administração</option>
+                    </select>
                 </div>
-                <div class="divisao-coluna">
-                    <div class="form-group completar-campo">
-                        <label for="orientadores">Orientador</label>
-                        <input class="col-sm-8 form-group form-control " type="text" placeholder="1" id="orientadores1" name="orientadores1">
-                        <input class="col-sm-8 form-group form-control " type="text" placeholder="2" id="orientadores2" name="orientadores2">
-                        <input class="col-sm-8 form-group form-control " type="text" placeholder="3" id="orientadores3" name="orientadores3">
-                    </div>
-    
-                    <div class="form-group completar-campo">
-                        <label for="coorientador">Co-orientador</label>
-                        <input class="col-sm-8 form-group form-control " type="text" placeholder="1" id="coorientador1" name="coorientador1">
-                        <input class="col-sm-8 form-group form-control " type="text" placeholder="2" id="coorientador2" name="coorientador2">
-                        <input class="col-sm-8 form-group form-control " type="text" placeholder="3" id="coorientador3" name="coorientador3">
-                    </div>
+                <div class="form-group completar-campo ">
+                    <label for="semestre">Semestre</label>
+                    <select name="semestre" class="form-control col-sm-4 col-md-8">
+                        <option selected>Selecione</option>
+                        <option value="1">XXXX.1</option>
+                        <option value="2">XXXX.2</option>
+                    </select>
                 </div>
-                
-                <div class=" divisao-coluna ">
-                    <div class="form-group completar-campo">
-                        <label for="curso">Curso</label>
-                        <select name="curso" class="form-control col-sm-8 col-md-12">
-                                <option selected>Selecione</option>
-                                <option value="Sistemas de Informação">Sistemas de Informação</option>
-                                <option value="Administração">Administração</option>
-                        </select>
-                    </div>
-                    <div class="form-group completar-campo ">
-                        <label for="semestre">Semestre</label>
-                        <select name="semestre" class="form-control col-sm-4 col-md-8">
-                            <option selected>Selecione</option>
-                            <option value="1">XXXX.1</option>
-                            <option value="2">XXXX.2</option>
-                        </select>
-                    </div>
-                    <div class="form-group completar-campo ">
-                        <label for="ano">Ano</label>
-                        <input class="form-control col-7" type="text" id="ano" required="required" name="ano" placeholder="Ano de Conclusão"/>
-                    </div>
+                <div class="form-group completar-campo ">
+                    <label for="ano">Ano</label>
+                    <input class="form-control col-7" type="text" id="ano" required="required" name="ano" placeholder="Ano de Conclusão" />
                 </div>
+            </div>
 
-                <div class="form-group custom-file col-4 tamanho-butao-tcc">
-                    <input name="pdfzin" type="file" class="custom-file-input" id="customFile">
-                    <label  id="nome_input_arquivo" class="custom-file-label" for="customFile">Arquivo TCC</label>
-                    <small class="small-upload">Faça o upload do seu arquivo</small>
-                    <br><br>
-                </div>
-                
-                <div class="form-group">
-                    <button type="submit" class="btn btn-outline-info">Enviar</button>
-                </div>  
+            <div class="form-group custom-file col-4 tamanho-butao-tcc">
+                <input name="pdfzin" type="file" class="custom-file-input" id="customFile">
+                <label id="nome_input_arquivo" class="custom-file-label" for="customFile">Arquivo TCC</label>
+                <small class="small-upload">Faça o upload do seu arquivo</small>
+                <br><br>
+            </div>
+
+            <div class="form-group">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Enviar
+                </button>
+
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Confirmação</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div class="modal-body">
-                            <p>teste</p>
+                                <p>Você confirmou todos os dados de inserção do TCC?</p>
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Vou checar agora</button>
+                                <button type="submit" class="btn btn-outline-info">Sim, enviar</button>
                             </div>
                         </div>
-                        </div>
-                    </div> 
-            </form>   
-
-            <%if(mensagem != null) {%>
-                <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Muito bem!</h4>
-                    <p><%= mensagem %></p>
-                    <hr>    
-                </div> 
-                <% } %> 
+                    </div>
+                </div>
+            </div>
+        </form>
 
             
-        </main>
+        <!-- Button trigger modal
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
 
-        <% include include/footer.ejs %>
-        <% include include/scripts.ejs %>
-    </body>
+        Modal
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%if(mensagem != null) {%>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Muito bem!</h4>
+            <p>
+                <%= mensagem %>
+            </p>
+            <hr>
+        </div>
+        <% } %>
+
+
+        -->
+
+
+    </main>
+
+    <% include include/footer.ejs %>
+    <% include include/scripts.ejs %>
+</body>
+
 </html>

@@ -19,7 +19,7 @@ p {font-size: 1em; color: #777;}
     display:flex; 
     justify-content:space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px 40px;
 }
 
 header nav{display: flex;}
@@ -53,14 +53,15 @@ footer p {color: #fff; text-align: center; justify-content: center;}
 
 /* Celular SM */
 @media (max-width: 575.98px){
-    .cabecalho { display: flex; flex-direction: column; height: 18vh;padding-bottom: 25px;padding-top: 30px;}
+    .cabecalho { display: flex; flex-direction: column; height: 18vh; padding-bottom: 90px;padding-top: 30px;}
     header img{ width: 75px;}
+    nav{padding-top: 15px;}
     nav a{font-size: 14px;}
     .divisao-coluna{flex-direction: column;}
     .form-group {margin-bottom: 0;}
     .custom-file-label{width: 199px;}
-    
     .text-muted {margin-left: 0px;}
+
 }
 
 /* Tablet MD */

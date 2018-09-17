@@ -1,12 +1,15 @@
 <header class="cabecalho bg">
-    <% var link= "http://localhost:3000/tcc/insert"%>
-    <% var busca= "http://localhost:3000/tcc"%>
+    <% var inserir= "http://localhost:3000/tcc/inserir"
+    var busca= "http://localhost:3000/tcc/buscar"
+    var home= "http://localhost:3000/tcc"
+    var contato= "http://localhost:3000/tcc/contato"
+    var alterar= "http://localhost:3000/tcc/alterar"%>
     <a href="#"> <img src="/logoupe.png" alt="Sistema TCC"></a>
     <nav>
-        <li><a href="">Home</a> </li>
-        <li><a href="<%= link %>">Inserir</a> </li>
+        <li><a href="<%= home %>">Home</a> </li>
+        <li><a href="<%= inserir %>">Inserir</a> </li>
         <li><a href="<%= busca %>">Buscar</a> </li>
-        <li><a href="#">Alterar</a> </li>
-        <li><a href="#">Contato</a> </li>
+        <li><a href="<%= alterar %>">Alterar</a> </li>
+        <li><a href="<%= contato %>">Contato</a> </li>
     </nav>
 </header>
