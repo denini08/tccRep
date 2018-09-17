@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const business = require('../business/TCCBusiness');
-const stream = require('stream');
-const api = require('../googleAPI/GoogleDrive')
+
 
 
 
@@ -18,7 +17,8 @@ router.get('/insert', (req,res)=>{
 });
 
 router.get('/:id', function(req, res, next) {
-    a = req.params;
+    let a = req.params;
+    console.log(a);
    if(isNaN(a.id)){
        res.render('errorComMensagem', {erroMensagem:  'Não foi possível encontrar esse tcc, verifique se o id é um numero'});
       return;
@@ -31,7 +31,8 @@ router.get('/:id', function(req, res, next) {
                                 curso: result[0].curso,
                                 ano: result[0].ano,
                                 semestre: result[0].semestre,
-                                orientadores: result[0].orientadores
+                                orientadores: result[0].orientadores,
+                                link: result[0].pdf
                               });
       }).catch(() => {
           console.log(`erro mostrar`);
@@ -52,18 +53,6 @@ router.post('/insert', (req,res,next) =>{
     let sampleFile = req.files.pdfzin;
     console.log(sampleFile);
 
-    const bufferStream = new stream.PassThrough();
-    bufferStream.end(new Buffer(sampleFile.data));
-    api.uploadFile(sampleFile.name, bufferStream).then((resp) =>{
-      console.log(resp);
-      console.log('entrou');
-    }).catch((err)=>{
-      console.log(err);
-      return;
-    })
-
-  
-
     const b = req.body;
     tccBusiness.insertTcc(
       b.titulo,
@@ -79,6 +68,7 @@ router.post('/insert', (req,res,next) =>{
       b.curso,
       b.ano,
       b.semestre,
+      sampleFile
     ).then(() => {
       res.render('inserir', { mensagem: 'Tcc inserido com sucesso!!' });
     }).catch((err) => {

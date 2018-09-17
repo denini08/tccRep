@@ -8,7 +8,7 @@ CREATE TABLE Trabalhos (
   curso varchar(100) DEFAULT NULL,
   ano int(11) DEFAULT NULL,
   semestre int(11) DEFAULT NULL,
-  pdf varchar(100) DEFAULT NULL,
+  pdf varchar(350) DEFAULT NULL,
   orientadores varchar(150) DEFAULT NULL,
   coorientadores varchar(150) DEFAULT NULL,
   palavras_chave varchar(150) DEFAULT NULL,

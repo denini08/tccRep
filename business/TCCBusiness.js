@@ -8,17 +8,25 @@ class TCCBusiness {
                                     consideração a arquitetura de camadas */
   }
 
-  insertTcc(titulo, tema, palavras_chave, autor, orientadores1, orientadores2, orientadores3, coorientador1, coorientador2, coorientador3, curso, ano, semestre) {
+  insertTcc(titulo, tema, palavras_chave, autor, orientadores1, orientadores2, orientadores3, coorientador1, coorientador2, coorientador3, curso, ano, semestre, sampleFile) {
     return new Promise((resolve, reject) => {
-      //console.log('autor: ' + autor)
-      let orientador = orientadores1 + " "+ orientadores2 + " "+ orientadores3;
-      let coorientador = coorientador1 + " "+ coorientador2 + " " +coorientador3;
 
-      this.tccPersistor.insert(titulo, tema, autor, curso, ano, semestre, orientador,palavras_chave, coorientador ).then((res) => {
-        resolve(res);
-      }).catch((err) => {
+      this.tccPersistor.insertPdf(sampleFile).then((idPdf) => {
+
+        let orientador = orientadores1 + " " + orientadores2 + " " + orientadores3;
+        let coorientador = coorientador1 + " " + coorientador2 + " " + coorientador3;
+
+        this.tccPersistor.insert(titulo, tema, autor, curso, ano, semestre, orientador, palavras_chave, coorientador, idPdf).then((res) => {
+          resolve(res);
+        }).catch((err) => {
           reject(err);
-      });
+        });
+
+      }).catch((err)=>{
+        reject(err);
+      })
+
+
     });
   }
 
@@ -32,7 +40,7 @@ class TCCBusiness {
     });
   }
 
-  
+
   searchTccById(id) {
     return new Promise((resolve, reject) => {
       this.tccPersistor.searchId(id).then((res) => {
@@ -43,77 +51,79 @@ class TCCBusiness {
     });
   }
 
-  searchTcc(req){
-    return new Promise((resolve,reject)=>{
-      if(!(req.campo && req.busca)) {
+
+
+  searchTcc(req) {
+    return new Promise((resolve, reject) => {
+      if (!(req.campo && req.busca)) {
         reject('faltando paramentros')
       }
-      
-      switch(req.campo){
-          case 'titulo':
-            this.tccPersistor.searchTitulo(req.busca).then((res)=>{
-              resolve(res);
-            }).catch((err)=>{
-              reject(err);
-            })
+
+      switch (req.campo) {
+        case 'titulo':
+          this.tccPersistor.searchTitulo(req.busca).then((res) => {
+            resolve(res);
+          }).catch((err) => {
+            reject(err);
+          })
           break;
 
-          case 'tema':
-            this.tccPersistor.searchTema(req.busca).then((res)=>{
-              resolve(res);
-            }).catch((err)=>{
-              reject(err);
-            });
+        case 'tema':
+          this.tccPersistor.searchTema(req.busca).then((res) => {
+            resolve(res);
+          }).catch((err) => {
+            reject(err);
+          });
           break;
 
-          case 'autor':
-            this.tccPersistor.searchAutor(req.busca).then((res)=>{
-              resolve(res);
-            }).catch((err)=>{
-              reject(err);
-            });
+        case 'autor':
+          this.tccPersistor.searchAutor(req.busca).then((res) => {
+            resolve(res);
+          }).catch((err) => {
+            reject(err);
+          });
           break;
 
-          case 'curso':
-            this.tccPersistor.searchCurso(req.busca).then((res)=>{
-              resolve(res);
-            }).catch((err)=>{
-              reject(err);
-            });
+        case 'curso':
+          this.tccPersistor.searchCurso(req.busca).then((res) => {
+            resolve(res);
+          }).catch((err) => {
+            reject(err);
+          });
           break;
 
-          case 'orientador':
-            this.tccPersistor.searchOrientador(req.busca).then((res)=>{
-              resolve(res);
-            }).catch((err)=>{
-              reject(err);
-            });
-           break;
-
-          case 'ano':
-            this.tccPersistor.searchAno(req.busca).then((res)=>{
-              resolve(res);
-            }).catch((err)=>{
-              reject(err);
-            });
+        case 'orientador':
+          this.tccPersistor.searchOrientador(req.busca).then((res) => {
+            resolve(res);
+          }).catch((err) => {
+            reject(err);
+          });
           break;
-            
-          default:
-            reject('parametro nao inserido');
-        }
-      })
+
+        case 'ano':
+          this.tccPersistor.searchAno(req.busca).then((res) => {
+            resolve(res);
+          }).catch((err) => {
+            reject(err);
+          });
+          break;
+
+        default:
+          reject('parametro nao inserido');
+      }
+    })
   }
-}  
-  
-  /*
-    return new Promise((resolve, reject) => {
-      this.tccPersistor.searchGeneralista(sql).then((res) => {
-      resolve(res);
-    }).catch((res) => {
-      reject(res);
-    });
+}
+
+/*
+  return new Promise((resolve, reject) => {
+    this.tccPersistor.searchGeneralista(sql).then((res) => {
+    resolve(res);
+  }).catch((res) => {
+    reject(res);
   });
-  }*/
+});
+}*/
 
 
 module.exports = TCCBusiness;

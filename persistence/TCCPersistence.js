@@ -1,4 +1,6 @@
 const conn = require('./ConnectionDB.js');
+const stream = require('stream');
+const api = require('../googleAPI/GoogleDrive');
 const ATRIBUTOS = ' titulo, tema, autor, curso, ano, orientadores '
 
 
@@ -6,23 +8,38 @@ class TCCPersistence {
   constructor() {
     this.connection = conn;
   }
-  insert( titulo, tema, autor, curso, ano, semestre, orientador, palavras_chave, coorientador ) {
-   // console.log('autor: ' + autor)
+  insert(titulo, tema, autor, curso, ano, semestre, orientador, palavras_chave, coorientador, idPdf) {
+    // console.log('autor: ' + autor)
     return new Promise((resolve, reject) => {
-      const sql = 'INSERT INTO Trabalhos ( titulo, tema, autor, curso, ano, semestre, orientadores, coorientadores, palavras_chave) VALUES ? ';
-      const values = [[titulo, tema, autor, curso, ano, semestre, orientador, coorientador, palavras_chave]];
+      const sql = 'INSERT INTO Trabalhos ( titulo, tema, autor, curso, ano, semestre, orientadores, coorientadores, palavras_chave, pdf) VALUES ? ';
+      const values = [[titulo, tema, autor, curso, ano, semestre, orientador, coorientador, palavras_chave, idPdf ]];
       this.connection.query(sql, [values], (err, result) => {
         if (err) reject(err);
         resolve(result);
-    });
-  })
-}
+      });
+    })
+  }
+
+  insertPdf(sampleFile) {
+
+    return new Promise((resolve, reject) => {
+      const bufferStream = new stream.PassThrough();
+      bufferStream.end(new Buffer(sampleFile.data));
+      api.uploadFile(sampleFile.name, bufferStream).then((id) => { //enviando para o drive
+        resolve(id)   //retonando o id do pdfs
+      }).catch((err) => {
+        reject(err)
+      })
+    })
+
+
+  }
 
   delete(id) {
     return new Promise((resolve, reject) => {
       const sql = "DELETE FROM trabalhos WHERE id='" + id + "';";
       this.connection.query(sql, (err, result) => {
-      console.log(sql);
+        console.log(sql);
         if (err) reject(err);
         resolve(result);
       });
@@ -32,19 +49,20 @@ class TCCPersistence {
   searchId(id) {
     const sql = "SELECT * FROM trabalhos WHERE id = ?;";
     return new Promise((resolve, reject) => {
-      this.connection.query(sql,[id], (err, result) => {
+      this.connection.query(sql, [id], (err, result) => {
         if (err) reject(err);
+        console.log(result);
         resolve(result);
       });
     });
   }
 
   searchTitulo(titulo) {
-    const sql = "SELECT" +ATRIBUTOS+ "FROM trabalhos WHERE titulo LIKE ?;";
+    const sql = "SELECT" + ATRIBUTOS + "FROM trabalhos WHERE titulo LIKE ?;";
     const value = "%" + titulo + "%";
 
     return new Promise((resolve, reject) => {
-      this.connection.query(sql,[value], (err, result) => {
+      this.connection.query(sql, [value], (err, result) => {
         if (err) reject(err);
         resolve(result);
       });
@@ -52,10 +70,10 @@ class TCCPersistence {
   }
 
   searchAutor(autor) {
-    const sql = "SELECT" + ATRIBUTOS +"FROM trabalhos WHERE autor LIKE ?;";
+    const sql = "SELECT" + ATRIBUTOS + "FROM trabalhos WHERE autor LIKE ?;";
     const value = "%" + autor + "%";
     return new Promise((resolve, reject) => {
-      this.connection.query(sql,[value], (err, result) => {
+      this.connection.query(sql, [value], (err, result) => {
         if (err) reject(err);
         resolve(result);
       });
@@ -75,10 +93,10 @@ class TCCPersistence {
   }
 
   searchCurso(curso) {
-    const sql = "SELECT" + ATRIBUTOS +" FROM trabalhos WHERE curso LIKE ? ;";
-    const value = "%" +curso +"%";
+    const sql = "SELECT" + ATRIBUTOS + " FROM trabalhos WHERE curso LIKE ? ;";
+    const value = "%" + curso + "%";
     return new Promise((resolve, reject) => {
-      this.connection.query(sql,[value], (err, result) => {
+      this.connection.query(sql, [value], (err, result) => {
         if (err) reject(err);
         resolve(result);
       });
@@ -86,7 +104,7 @@ class TCCPersistence {
   }
 
   searchAno(ano) {
-    const sql = "SELECT" + ATRIBUTOS+ "FROM trabalhos WHERE ano = ?;";
+    const sql = "SELECT" + ATRIBUTOS + "FROM trabalhos WHERE ano = ?;";
     return new Promise((resolve, reject) => {
       this.connection.query(sql, [ano], (err, result) => {
         if (err) reject(err);
@@ -95,9 +113,9 @@ class TCCPersistence {
     });
   }
 
-  searchOrientador(orientador){
+  searchOrientador(orientador) {
     const sql = "SELECT" + ATRIBUTOS + "FROM trabalhos WHERE Orientadores LIKE ?;"
-    const value = "%" +orientador + "%";
+    const value = "%" + orientador + "%";
     return new Promise((resolve, reject) => {
       this.connection.query(sql, [value], (err, result) => {
         if (err) reject(err);
@@ -105,7 +123,7 @@ class TCCPersistence {
       });
     });
   }
-  
+
   searchGeneralista(query) {
     return new Promise((resolve, reject) => {
       this.connection.query(query, (err, result) => {

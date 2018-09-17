@@ -38,7 +38,11 @@ function uploadFile (fileName, buffer) {
       if(err) {
         reject(err);
       } else {
-        resolve(file.data.id); //return only id
+          downloadFile(file.data.id).then((link)=>{
+          resolve(link);
+        }).catch((err) =>{
+          reject(err)
+        })
       }
     });  
   });  
