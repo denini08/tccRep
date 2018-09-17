@@ -5,12 +5,12 @@ var router = express.Router();
 router.use(bodyParser.json());
 
 router.get('/', (req,res)=>{
-    res.send('adsadasdas')
+    res.render('login')
 })
 
-router.post('login', (req,res) =>{
+router.post('/login', (req,res) =>{
     const entrada = req.body;
     console.log(entrada);
 })
 
-module.exports = router;
+module.exports = router
