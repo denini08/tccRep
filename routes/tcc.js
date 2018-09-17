@@ -1,10 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const business = require('../business/TCCBusiness');
+const stream = require('stream');
+const api = require('../googleAPI/GoogleDrive')
+
+
 
 let tccBusiness = new business();
 var router = express.Router();
 router.use(bodyParser.json());
+
+
 
 //GET
 router.get('/insert', (req,res)=>{
@@ -41,9 +47,24 @@ router.get('/', (req,res,next) =>{
 
 //POST
 router.post('/insert', (req,res,next) =>{
+    
+
+    let sampleFile = req.files.pdfzin;
+    console.log(sampleFile);
+
+    const bufferStream = new stream.PassThrough();
+    bufferStream.end(new Buffer(sampleFile.data));
+    api.uploadFile(sampleFile.name, bufferStream).then((resp) =>{
+      console.log(resp);
+      console.log('entrou');
+    }).catch((err)=>{
+      console.log(err);
+      return;
+    })
+
+  
+
     const b = req.body;
-    //console.log(b.autor);
-    console.log('palavra' + b.palavras_chave)
     tccBusiness.insertTcc(
       b.titulo,
       b.tema,
