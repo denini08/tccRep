@@ -98,10 +98,9 @@ router.post('/search', (req,resp) =>{
   })
 })
  
-router.post('/teste', (req,res)=>{
-  console.log('aeee');
-  console.log(req.body);
-  res.send(req.body);
+router.post('/login', (req,res) =>{
+  const entrada = req.body;
+  console.log(entrada);
 })
 
 module.exports = router;
