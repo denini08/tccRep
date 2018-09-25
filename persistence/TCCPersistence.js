@@ -124,6 +124,27 @@ class TCCPersistence {
     });
   }
 
+  //ADMINS
+
+  login(login,senha){
+    const sql = "SELECT * FROM ADMINS WHERE login LIKE ? AND senha LIKE ?;"
+    return new Promise((resolve, reject) =>{
+      this.connection.query(sql,[login, senha], (err,result) =>{
+        if(err){
+          reject(err) 
+        }else{
+          if(result[0]){
+            resolve(result)
+          }else{
+            reject('usuario ou senha invalidos')
+          }
+        }
+      })
+    })
+  }
+  
+  
+  //GERAL
   searchGeneralista(query) {
     return new Promise((resolve, reject) => {
       this.connection.query(query, (err, result) => {
