@@ -113,8 +113,19 @@ class TCCBusiness {
       }
     })
   }
-}
 
+
+login(req){
+  return new Promise((resolve,reject) =>{
+    this.tccPersistor.login(req.login,req.senha).then((res) =>{
+      resolve(res);
+    }).catch((res)=>{
+      reject(res)
+    })
+  });
+};
+
+}
 /*
   return new Promise((resolve, reject) => {
     this.tccPersistor.searchGeneralista(sql).then((res) => {

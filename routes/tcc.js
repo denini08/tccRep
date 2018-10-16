@@ -100,7 +100,13 @@ router.post('/search', (req,resp) =>{
  
 router.post('/login', (req,res) =>{
   const entrada = req.body;
-  console.log(entrada);
+  tccBusiness.login(entrada).then((res) =>{
+    console.log("aeoooooo")
+    console.log(res.id)
+    res.send(res.id);
+  }).catch((err) =>{
+    res.send(err)
+  })
 })
 
 module.exports = router;

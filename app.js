@@ -8,7 +8,6 @@ var fileupload = require("express-fileupload");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let tccRouter = require('./routes/tcc');
-let logonRouter = require('./routes/logon');
 var app = express();
 
 // view engine setup
@@ -24,7 +23,6 @@ app.use(fileupload());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/logon', logonRouter);
 app.use('/tcc', tccRouter );
 
 
